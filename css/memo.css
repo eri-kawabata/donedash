@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* おしゃれな見出しのスタイル */
+#title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 5px;
+    background: linear-gradient(135deg, #313131, #4f4f4f);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#memoForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#memoForm input[type="text"] {
+    flex: 1;
+    padding: 8px;
+}
+
+#memoForm button {
+    padding: 8px 12px;
+}
+
+#memoList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+/* メモ項目を付箋風にデザイン */
+#memoList li {
+    width: 170px;
+    min-height: 100px;
+    background-color: #d6fafa;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    word-wrap: break-word;
+    cursor: grab;
+}
+
+/* ドラッグ中のスタイル */
+.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+/* 3日経過でオレンジ */
+.memo-warning {
+    background-color: #fdcb70;
+}
+
+/* 7日経過で赤 */
+.memo-danger {
+    background-color: #f88787;
+}
+
+/* 10日経過で黒 */
+.memo-critical {
+    background-color: #585858;
+    color: #fff;
+}
+
+/* 日付用のスタイル */
+.memo-date {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* 削除ボタン */
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: rgb(137, 137, 137);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 削除時のはがれるアニメーション */
+@keyframes peel-off {
+    0% {
+        opacity: 1;
+        transform: rotate(0deg) translateX(0);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: rotate(10deg) translateX(-10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(20deg) translateX(-100%);
+    }
+}
+
+.peel-off-animation {
+    animation: peel-off 0.5s ease forwards;
+}
+
+/* スマートフォン用 */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    #title {
+        font-size: 2.2rem;
+    }
+
+    #memoForm {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #memoList li {
+        width: 100%;
+        min-height: 80px;
+        padding: 8px;
+    }
+}
+
+/* タブレット用 */
+@media (min-width: 601px) and (max-width: 900px) {
+    body {
+        padding: 15px;
+    }
+
+    #title {
+        font-size: 2.5rem;
+    }
+
+    #memoList li {
+        width: calc(50% - 10px);
+    }
+}

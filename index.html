@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja"> <!--多言語対応の場合、lang="ja"のように日本語に-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoneDash/タスクを素早く片付けよう</title>
+    <link rel="stylesheet" href="./css/memo.css"> <!-- css読み込むの忘れずに -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1 id="title">DoneDash</h1>
+
+<!--メモフォーム入力欄-->
+    <form id="memoForm">
+        <input type="text" id="memoInput" placeholder="メモを入力してください" required>  <!--placeholder="メモを入力してください": ユーザーに入力を促すためのヒントテキストを表示-->
+        <button type="submit">追加</button>
+    </form>
+
+    <ul id="memoList"></ul>
+
+
+    <script src="./js/memo.js"></script>
+</body>
+</html>
